@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GoogleMap } from '@angular/google-maps';
+
 
 @Component({
   selector: 'app-root',
@@ -17,4 +19,12 @@ export class AppComponent {
     color: 'white',
     text: 'Auditorio UTNG'
   };
+
+  
+
+  ngOnInit(){
+
+  }
+
+  constructor(map: GoogleMap) {}
 }
