@@ -10,27 +10,14 @@ export class LugaresService {
     this.getUserLocation();
   }
 
-  public async getUserLocation(): Promise<[number, number]> {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        ({coords}) => {
-          this.useLocation = [coords.longitude, coords.latitude];
-          resolve(this.useLocation)
-        },
-        (err) => {
-          alert('No se pudo')
-          console.log(err);
-          reject();
-        }
-      );
-    });
+  public getUserLocation(){
+   
     
-    /** 
     navigator.geolocation.getCurrentPosition(
       ({coords})=>{
         this.useLocation = [coords.latitude, coords.longitude];
       }
     );
-    **/
+    
   }
 }
