@@ -5,17 +5,36 @@ import { Injectable } from '@angular/core';
 })
 export class PlacesService {
 
-  public useLocation?:[number, number];
+  public useLocation?: [number, number];
 
   constructor() {
     this.getUserLocation();
   }
  
-  public getUserLocation(){
-    navigator.geolocation.getCurrentPosition(
-      ({coords}) => {
-        this.useLocation = [coords.latitude, coords.longitude];
-      }
-    );
+  public async getUserLocation(){
+  
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        ({coords}) => {
+          this.useLocation = [coords.longitude, coords.latitude];
+          resolve(this.useLocation)
+        },
+        (err) => {
+          alert('No se pudo')
+          console.log(err);
+          reject();
+        }
+      );
+    });
   }
+  
+  /**
+    navigator.geolocation.getCurrentPosition(
+      ({coords})=>{
+        this.useLocation = [coords.latitude, coords.longitude];
+        
+      }
+    )
+  }
+  */
 }

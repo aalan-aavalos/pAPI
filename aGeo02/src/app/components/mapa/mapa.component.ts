@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlacesService } from 'src/app/services/places.service';
 
 @Component({
@@ -6,10 +6,9 @@ import { PlacesService } from 'src/app/services/places.service';
   templateUrl: './mapa.component.html',
   styleUrls: ['./mapa.component.css']
 })
-export class MapaComponent {
+export class MapaComponent implements OnInit {
   constructor (private placeSvc:PlacesService) {}
 
-  ngOnInit(){
-    console.log(this.placeSvc.getUserLocation)
+  ngOnInit():void{
   }
 }
