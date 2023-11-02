@@ -10,11 +10,14 @@ export class LugaresService {
     this.getUserLocation();
   }
 
-  public getUserLocation() {
+  public getUserLocation(){
+   
+    
     navigator.geolocation.getCurrentPosition(
       ({coords})=>{
         this.useLocation = [coords.latitude, coords.longitude];
       }
     );
+    
   }
 }
